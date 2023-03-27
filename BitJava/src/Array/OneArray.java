@@ -2,23 +2,23 @@ package Array;
 
 import java.util.Scanner;
 
-//ìµœëŒ“ê°’ã…‡, ìµœì†Œê°’ã…‡, ê·¼ì‚¬ê°’ã…‡, ?¸ì°¨ã…‡, ìµœë¹ˆê°’ã…‡, ?•©ê³„ã…‡, ?‰ê· ã…‡, ?‰ê· ì´?ƒ ê°œìˆ˜?…‡, ?‰ê·? ?´?•˜ ê°œìˆ˜?…‡
+//ìµœëŒ“ê°’ã…‡, ìµœì†Œê°’ã…‡, ê·¼ì‚¬ê°’ã…‡, í¸ì°¨ã…‡, ìµœë¹ˆê°’ã…‡, í•©ê³„ã…‡, í‰ê· ã…‡, í‰ê· ì´ìƒ ê°œìˆ˜ã…‡, í‰ê·  ì´í•˜ ê°œìˆ˜ã…‡
 public class OneArray {
 
-    private int[] m = new int[10]; //?‚œ?ˆ˜?“¤?´ ???¥?˜?Š” ê°?
-    StringBuilder sb = new StringBuilder(); //ê·¼ì‚¿ ê°? ( ì°¾ëŠ” ê°’ì´ 10 ?´ê³? 8 ê³? 12 ?¼?•Œ ?‘˜?‹¤ ?“¤?–´ê°?)
-    StringBuilder sb1 = new StringBuilder(); //?¸ì°? ???¥
+    private int[] m = new int[10]; //ë‚œìˆ˜ë“¤ì´ ì €ì¥ë˜ëŠ” ê°’
+    StringBuilder sb = new StringBuilder(); //ê·¼ì‚¿ ê°’ ( ì°¾ëŠ” ê°’ì´ 10 ì´ê³  8 ê³¼ 12 ì¼ë•Œ ë‘˜ë‹¤ ë“¤ì–´ê°)
+    StringBuilder sb1 = new StringBuilder(); //í¸ì°¨ ì €ì¥
 
 
-    // ë°°ì—´?— Random ê°? ?„£ê¸?
+    // ë°°ì—´ì— Random ê°’ ë„£ê¸°
     public OneArray() {
         for (int i = 0; i < m.length; i++) {
-            m[i] = (int) (Math.random() * 100)+1; //1ë¶??„° 100ê¹Œì??˜ ?‚œ?ˆ˜ ë°œìƒ
+            m[i] = (int) (Math.random() * 100)+1; //1ë¶€í„° 100ê¹Œì§€ì˜ ë‚œìˆ˜ ë°œìƒ
         }
 //    		m= new int[]{0,0,0,0,1,2,3,4,5,6};
     }
 
-    // ì¶œë ¥?•˜ê¸?
+    // ì¶œë ¥í•˜ê¸°
     public void print(int k) {
     	
         for (int i = 0; i < m.length; i++) {
@@ -26,33 +26,33 @@ public class OneArray {
         }
         System.out.println();
         
-        System.out.println("ìµœëŒ“ê°?: " + maxValue(1));
-        System.out.println("ìµœì†Ÿê°?: " + minValue(1));
+        System.out.println("ìµœëŒ“ê°’: " + maxValue(1));
+        System.out.println("ìµœì†Ÿê°’: " + minValue(1));
         System.out.println("ì´í•©: " + totalSum());
-        System.out.println("?‰ê·?: " + totalAvg());
-        System.out.println("?‰ê·? ?´?ƒ?˜ ê°??ˆ˜: " + maxavgCnt());
-        System.out.println("?‰ê·? ë¯¸ë§Œ?˜ ê°??ˆ˜: " + minavgCnt());
-        //?˜¤ë¦„ì°¨?ˆœ?œ¼ë¡? ? •? ¬?˜?–´?ˆ?Š” ?ƒ?ƒœ
+        System.out.println("í‰ê· : " + totalAvg());
+        System.out.println("í‰ê·  ì´ìƒì˜ ê°¯ìˆ˜: " + maxavgCnt());
+        System.out.println("í‰ê·  ë¯¸ë§Œì˜ ê°¯ìˆ˜: " + minavgCnt());
+        //ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬ë˜ì–´ìˆëŠ” ìƒíƒœ
         
         System.out.println();
-        System.out.println(k + " ?? ê°??¥ ?‘?? ì°¨ëŠ”? " + approximate(k));
-        System.out.println(k + " ?˜  ê·¼ì‚¿ê°’ì?? " + sb);
+        System.out.println(k + " ì™€ ê°€ì¥ ì‘ì€ ì°¨ëŠ”? " + approximate(k));
+        System.out.println(k + " ì˜  ê·¼ì‚¿ê°’ì€? " + sb);
 
         if (manyValue() == -1) {
-            System.out.println("? œ?¼ ë§ì´ ?‚˜?˜¨ ?ˆ˜?Š”? ëª¨ë‘ ?•œë²ˆì”© ?‚˜?˜´");
+            System.out.println("ì œì¼ ë§ì´ ë‚˜ì˜¨ ìˆ˜ëŠ”? ëª¨ë‘ í•œë²ˆì”© ë‚˜ì˜´");
         } else {
-            System.out.println("? œ?¼ ë§ì´ ?‚˜?˜¨ ?ˆ˜?Š”? " + manyValue());
+            System.out.println("ì œì¼ ë§ì´ ë‚˜ì˜¨ ìˆ˜ëŠ”? " + manyValue());
         }
 
         System.out.println();
-        System.out.println("?˜„?¬ ë°°ì—´??");
+        System.out.println("í˜„ì¬ ë°°ì—´ì€");
         for(int num : m){
             System.out.print(num + " ");
         }
         
         System.out.println();
         deviation();
-        System.out.println("?˜„?¬ ë°°ì—´?—?„œ?˜ ?¸ì°¨ëŠ”?: "+ sb1);
+        System.out.println("í˜„ì¬ ë°°ì—´ì—ì„œì˜ í¸ì°¨ëŠ”?: "+ sb1);
 
     }
 
@@ -64,16 +64,16 @@ public class OneArray {
         m[j] = tmp;
     }
 
-    // ?„ ?ƒ ? •? ¬(selection sort)
+    // ì„ íƒ ì •ë ¬(selection sort)
     public void sort(int order) {
         int tmp = 0;
         for (int i = 0; i < m.length - 1; i++) {
             for (int j = i + 1; j < m.length; j++) {
-                if (order == 0) { // ?‚´ë¦¼ì°¨?ˆœ
+                if (order == 0) { // ë‚´ë¦¼ì°¨ìˆœ
                     if (m[i] < m[j]) {
                         swap(i, j);
                     }
-                } else { // ?˜¤ë¦„ì°¨?ˆœ
+                } else { // ì˜¤ë¦„ì°¨ìˆœ
                     if (m[i] > m[j]) {
                         swap(i, j);
                     }
@@ -82,22 +82,22 @@ public class OneArray {
         }
     }
 
-    // ìµœëŒ“ê°?
+    // ìµœëŒ“ê°’
     public int maxValue(int index) {
-        // ì¶œë ¥?•˜ê¸? ? „?— ? •? ¬?•˜ê¸?
-        // 0?¼?•Œ ?‚´ë¦¼ì°¨?ˆœ
+        // ì¶œë ¥í•˜ê¸° ì „ì— ì •ë ¬í•˜ê¸°
+        // 0ì¼ë•Œ ë‚´ë¦¼ì°¨ìˆœ
         sort(0);
         return m[index - 1];
     }
 
-    // ìµœì†Ÿê°?
+    // ìµœì†Ÿê°’
     public int minValue(int index) {
-        // ìµœì†Ÿê°? ì°¾ê¸°? „?— ? •? ¬?•˜ê¸?
-        sort(1); // ?‚´ë¦¼ì°¨?ˆœ
+        // ìµœì†Ÿê°’ ì°¾ê¸°ì „ì— ì •ë ¬í•˜ê¸°
+        sort(1); // ë‚´ë¦¼ì°¨ìˆœ
         return m[index - 1];
     }
 
-    // ë°°ì—´?˜ ì´í•©
+    // ë°°ì—´ì˜ ì´í•©
     public int totalSum() {
         int ans = 0;
 
@@ -108,12 +108,12 @@ public class OneArray {
         return ans;
     }
 
-    // ë°°ì—´?˜ ? „ì²? ?‰ê·?
+    // ë°°ì—´ì˜ ì „ì²´ í‰ê· 
     public int totalAvg() {
         return totalSum() / m.length;
     }
 
-    // ë°°ì—´?˜ ?‰ê·? ?´?ƒ?˜ ê°??ˆ˜
+    // ë°°ì—´ì˜ í‰ê·  ì´ìƒì˜ ê°¯ìˆ˜
     public int maxavgCnt() {
         int k = totalAvg();
         int cnt = 0;
@@ -123,7 +123,7 @@ public class OneArray {
         return cnt;
     }
 
-    // ë°°ì—´?˜ ?‰ê·? ?´?•˜?˜ ê°??ˆ˜
+    // ë°°ì—´ì˜ í‰ê·  ì´í•˜ì˜ ê°¯ìˆ˜
     public int minavgCnt() {
         int k = totalAvg();
         int cnt = 0;
@@ -135,9 +135,9 @@ public class OneArray {
         return cnt;
     }
 
-    // ê·¼ì‚¿ê°? ë§? êµ¬í•˜ê¸? 
+    // ê·¼ì‚¿ê°’ ë§Œ êµ¬í•˜ê¸° 
     
-    // ans?? ê°??¥ ?‘?? ì°?, ê·¼ì‚¿ê°? ê·¸ìì²´ëŠ” sb?— ?“¤?–´ê°? ?ˆ?‹¤
+    // ansì€ ê°€ì¥ ì‘ì€ ì°¨, ê·¼ì‚¿ê°’ ê·¸ìì²´ëŠ” sbì— ë“¤ì–´ê°€ ìˆë‹¤
     public int approximate(int n) {
         int ans = Math.abs(n - m[0]);
 
@@ -145,7 +145,7 @@ public class OneArray {
             if (ans > Math.abs(n - m[i])) ans = Math.abs(n - m[i]);
         }
         
-        //ê·¼ì‚¿ê°? ?“¤?„ sb?— ?„£ê¸?
+        //ê·¼ì‚¿ê°’ ë“¤ì„ sbì— ë„£ê¸°
         for (int i = 0; i < m.length; i++) {
             if (Math.abs(n - m[i]) == ans) sb.append(m[i]).append(" ");
         }
@@ -153,36 +153,36 @@ public class OneArray {
         return ans;
     }
 
-    // ìµœë¹ˆê°? -> ?…¸?“œ?“¤?´ ?™?¼?• ?•Œ ê°??¥ ë§ì´?‚˜?˜¨ê±?
-    // ?´ì¤? for ë¬? ?•˜?‚˜ë½‘ê³  ?’¤?— ?Œê³?, ?•˜?‚˜ë½‘ê³  ?’¤?— ?Œ?•„?„œ, 
-    //ê·¸ëƒ¥ ? „ì²? ë¦¬ìŠ¤?Š¸ ë§Œë“¤ê³? ?¸?±?Š¤?— ?”°?¼?„œ ê·¸ìˆ«?ê°? ?–¼ë§ˆë‚˜ ?‚˜?™”?Š”ì§?
+    // ìµœë¹ˆê°’ -> ë…¸ë“œë“¤ì´ ë™ì¼í• ë•Œ ê°€ì¥ ë§ì´ë‚˜ì˜¨ê±°
+    // ì´ì¤‘ for ë¬¸ í•˜ë‚˜ë½‘ê³  ë’¤ì— ëŒê³ , í•˜ë‚˜ë½‘ê³  ë’¤ì— ëŒì•„ì„œ, 
+    //ê·¸ëƒ¥ ì „ì²´ ë¦¬ìŠ¤íŠ¸ ë§Œë“¤ê³  ì¸ë±ìŠ¤ì— ë”°ë¼ì„œ ê·¸ìˆ«ìê°€ ì–¼ë§ˆë‚˜ ë‚˜ì™”ëŠ”ì§€
     public int manyValue() {
-        int[] valueCnt = new int[101]; //?‚œ?ˆ˜?Š” 0ë¶??„° 100ê¹Œì??‹ˆê¹? 0ë¶??„° 100ê¹Œì??˜ ?¸?±?Š¤ ë§Œë“¤ê¸?
+        int[] valueCnt = new int[101]; //ë‚œìˆ˜ëŠ” 0ë¶€í„° 100ê¹Œì§€ë‹ˆê¹Œ 0ë¶€í„° 100ê¹Œì§€ì˜ ì¸ë±ìŠ¤ ë§Œë“¤ê¸°
 
-        //valueCnt ?Š” ê·¸ëƒ¥ index - > ?•´?‹¹ ê°’ì´ ëª‡ë²ˆ ?“¤?–´ê°??ˆ?Š”ì§? ë¹ˆë„?ˆ˜êµ¬í•˜ê¸?
-        for (int i = 0; i < m.length; i++) valueCnt[m[i]]++; //10ê°? ?Œë©´ì„œ ?•ˆ?— ?ˆ?Š”ê°? ++?•´ì£¼ê¸°
+        //valueCnt ëŠ” ê·¸ëƒ¥ index - > í•´ë‹¹ ê°’ì´ ëª‡ë²ˆ ë“¤ì–´ê°€ìˆëŠ”ì§€ ë¹ˆë„ìˆ˜êµ¬í•˜ê¸°
+        for (int i = 0; i < m.length; i++) valueCnt[m[i]]++; //10ê°œ ëŒë©´ì„œ ì•ˆì— ìˆëŠ”ê°’ ++í•´ì£¼ê¸°
 
 
-        int max = 0; //ë¹? ?„ ?ˆ˜ ì¤‘ì—?„œ ? œ?¼ ë§ì´ ?“¤?–´ê°? "ê°?"
-        int tmp = 0; // ê·? ê°’ì˜ "ë¹ˆë„ ?ˆ˜"
+        int max = 0; //ë¹ˆ ë„ ìˆ˜ ì¤‘ì—ì„œ ì œì¼ ë§ì´ ë“¤ì–´ê°„ "ê°’"
+        int tmp = 0; // ê·¸ ê°’ì˜ "ë¹ˆë„ ìˆ˜"
 
         for (int i = 0; i < 101; i++) {
             if (max < valueCnt[i]) {
-                max = i; //ê°?
-                tmp = valueCnt[i]; //ë¹ˆë„ ?ˆ˜
+                max = i; //ê°’
+                tmp = valueCnt[i]; //ë¹ˆë„ ìˆ˜
             }
         }
 
-        //?‘ë²? ?´?ƒ ?‚˜?˜¨ ?ˆ˜ê°? ?ˆ?„?•Œ
+        //ë‘ë²ˆ ì´ìƒ ë‚˜ì˜¨ ìˆ˜ê°€ ìˆì„ë•Œ
         if (tmp > 1) {
             return max;
         }else {
-            //10ê°? ?ˆ˜ ëª¨ë‘ 1ë²ˆì”© ?‚˜?™”?„?• -1
+            //10ê°œ ìˆ˜ ëª¨ë‘ 1ë²ˆì”© ë‚˜ì™”ì„ë• -1
             return -1;
         }
     }
 
-    // ?¸ì°?
+    // í¸ì°¨
     public void deviation(){
         int avg = totalAvg();
         for(int i = 0 ; i<m.length;i++){
@@ -192,13 +192,13 @@ public class OneArray {
 
     public static void main(String[] args) {
         OneArray a = new OneArray();
-        System.out.println("ê¸°ì??•  ?ˆ«?ë¥? ?…? ¥?•´ì£¼ì„¸?š”");
+        System.out.println("ê¸°ì¤€í•  ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”");
         Scanner sc = new Scanner(System.in);
         int k = sc.nextInt();
 
-        // ì¶œë ¥?•˜ê¸?
+        // ì¶œë ¥í•˜ê¸°
         a.print(k);
-        //k?? ê°??¥ ê°?ê¹Œìš´ ê·¼ì‚¿ê°?
+        //kì™€ ê°€ì¥ ê°€ê¹Œìš´ ê·¼ì‚¿ê°’
     }
     
   
