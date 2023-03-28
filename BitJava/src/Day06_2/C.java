@@ -3,7 +3,6 @@ import Array.*;
 public class C {
 	public static void test() {
 		
-		CE.test();
 		
 		System.out.println("Ctestmethod");
 	}
