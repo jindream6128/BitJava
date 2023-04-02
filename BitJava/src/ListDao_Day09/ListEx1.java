@@ -12,9 +12,7 @@ import java.util.Scanner;
 //private String contents;
 //private String password;
 //private String regdate;
-
-/*1. 시험준비하기
-2. ArrayList CRUD 구현 Structure 확인하고 다시 백지로 구현해보기
+/*
 
 ---------
 바꾸는 값 인덱스 받아오기
