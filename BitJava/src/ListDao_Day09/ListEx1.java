@@ -1,9 +1,9 @@
 //Arraylist 메뉴판 예제
 package ListDao_Day09;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -120,7 +120,19 @@ public class ListEx1 {
 
 	}
 
-	public void menu() {
+//	public void Save() throws Exception {
+//		FileOutputStream fos = new FileOutputStream("C:\\Users\\user\\Desktop");
+//		ObjectOutputStream oos = new ObjectOutputStream(fos);
+//		
+//		Iterator<BoardBean> iter = ListDao.getDao().getList().iterator();
+//		while(iter.hasNext()) {
+//			oos.writeObject(iter.next());
+//		}
+//		
+//		
+//	}
+	
+	public void menu() throws Exception {
 		while (true) {
 			// 1 -> 추가하기ㅇ
 			// 2 -> 출력ㅇ
@@ -148,6 +160,7 @@ public class ListEx1 {
 				delete();
 				break;
 			case 6:
+//				Save();
 			case 7:
 
 			}
@@ -156,7 +169,7 @@ public class ListEx1 {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		ListEx1 ex = new ListEx1();
 		ex.menu();
 	}

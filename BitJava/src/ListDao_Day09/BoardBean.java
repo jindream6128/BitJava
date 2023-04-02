@@ -1,6 +1,8 @@
 package ListDao_Day09;
 
-public class BoardBean {
+import java.io.Serializable;
+
+public class BoardBean{
 	private int no;
 	private String title;
 	private String writer;
