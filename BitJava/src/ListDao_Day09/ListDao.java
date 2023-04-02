@@ -32,14 +32,24 @@ public class ListDao {
 		return list.get(index);
 	}
 	
+	
 	public void listDelete(int index) {
 		list.remove(index);
 		System.out.println("삭제완료");
 	}
 	
+	public void allDelete() {
+		list.clear();
+		System.out.println("전체 삭제");
+	}
 	public void listInsert(BoardBean bean) {
 		list.add(bean);
 		System.out.println("Insert Success");
+	}
+	
+	public void listModify(int num,BoardBean bean) {
+		list.set(num, bean);
+		System.out.println("modify Success");
 	}
 	
 	public static List<BoardBean>getList(){
