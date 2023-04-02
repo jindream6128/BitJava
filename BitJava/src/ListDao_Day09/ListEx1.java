@@ -32,13 +32,13 @@ public class ListEx1 {
 	private Scanner sc = new Scanner(System.in);
 	private ArrayList list;
 	
-	public void inputData() {
+	public BoardBean inputData() {
 		BoardBean bean = new BoardBean();
 
 		// 예외처리 하기 -> 만약 no이 int 가 아니라면 다시 입력받기
 		int no = 0;
 		do {
-			System.out.println("No를 입력하세요"); // no는 숫자인데, 만약에 문자열을 입력하면 Exception, 만약에 중복이라면 다시 입력하기
+			System.out.println("id를 입력하세요"); // no는 숫자인데, 만약에 문자열을 입력하면 Exception, 만약에 중복이라면 다시 입력하기
 			no = sc.nextInt();
 
 		} while (!ListDao.getDao().noCheck(no));
@@ -65,14 +65,12 @@ public class ListEx1 {
 //		String Today = String.valueOf(c.get(Calendar.YEAR)).concat(String.valueOf(c.get(Calendar.MONTH)+1)).concat(String.valueOf(c.get(Calendar.DATE))).concat(String.valueOf(" "+c.get(Calendar.HOUR))).concat(String.valueOf(":"+c.get(Calendar.MINUTE))).concat(String.valueOf(":"+c.get(Calendar.SECOND)));
 //		bean.setRegdate(Today); //오늘 날짜 얻어와서 찍기
 		
-		//여기가 add임 
-		ListDao.getDao().listInsert(bean);
-		System.out.println(bean);
-
+		return bean;
 	}
 	
-	public void add() {
-//		ListDao.getDao().listInsert();
+	public void add(BoardBean bean) {
+		ListDao.getDao().listInsert(bean);
+		System.out.println(bean);
 	}
 
 	
@@ -99,9 +97,9 @@ public class ListEx1 {
 	
 	
 	//modify -> 찾는 id값을 입력받고, 그index받아서 삭제하고, 그자리에 그냥 전부 다시 입력받기 그리고 출력하기 
-	public void modify() {
+	public void modify(BoardBean bean) {
 		System.out.println("수정할 ID 값을 입력해 주세요");
-
+		inputData();
 		//bean 으로 받아와서 그냥 이걸 set
 		
 	}
@@ -122,7 +120,7 @@ public class ListEx1 {
 		while (true) {
 			// 1 -> 추가하기
 			// 2 -> 출력
-			// 3 -> 상세정보
+			// 3 -> 상세정보[
 			// 4 -> 수정
 			// 5 -> Delete 전체도 가능
 			// 6, 7 -> 직렬화와 연결
@@ -131,8 +129,7 @@ public class ListEx1 {
 			switch (sc.nextInt()) {
 			
 			case 1:
-				inputData();
-				add();
+				add(inputData());
 				break;
 			case 2:
 				list();
@@ -141,7 +138,7 @@ public class ListEx1 {
 				search();
 				break;
 			case 4:
-				modify();
+				modify(inputData());
 				break;
 			case 5:
 				delete();
