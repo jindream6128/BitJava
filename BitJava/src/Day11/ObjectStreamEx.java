@@ -3,8 +3,8 @@ package Day11;
 import java.io.*;
 
 public class ObjectStreamEx {
-	private final String PATH ="D:\\testForder\\obj2.txt"; 
-	//ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(PATH))) 이건 아무것도아님 걍복사
+	private final String PATH ="D:\\testForder\\obj5.txt"; 
+
 	public void writeMember() {
 		try(ObjectOutputStream oos = new ObjectOutputStream(new PrintStream(new File(PATH)))) {
 			oos.writeObject(new Member("BLUE","name","189.9"));	
@@ -12,6 +12,14 @@ public class ObjectStreamEx {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+//		try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(PATH),false))) {
+//			oos.writeObject(new Member("Bule","name","123.123"));
+//			System.out.println("write objcet");
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 	

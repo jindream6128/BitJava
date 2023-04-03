@@ -2,7 +2,7 @@ package ListDao_Day09;
 
 import java.io.Serializable;
 
-public class BoardBean{
+public class BoardBean implements Serializable{
 	private int no;
 	private String title;
 	private String writer;

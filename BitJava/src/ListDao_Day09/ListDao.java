@@ -6,7 +6,7 @@ import java.util.List;
 
 //Dao -> DataBase Access Object  데이터 베이스 접근 객체 
 
-public class ListDao{
+public class ListDao implements Serializable{
 	private static ArrayList<BoardBean> list = new ArrayList<BoardBean>();
 	private static ListDao dao;
 

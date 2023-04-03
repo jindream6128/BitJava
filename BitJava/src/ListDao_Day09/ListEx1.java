@@ -1,8 +1,14 @@
 //Arraylist 메뉴판 예제
 package ListDao_Day09;
 
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -94,7 +100,7 @@ public class ListEx1 {
 		int idNum = sc.nextInt();
 		// 수정할 인덱스
 		int idIndex = ListDao.getDao().getIdNumIndex(idNum);
-		if(idIndex == -1) {
+		if (idIndex == -1) {
 			System.out.println("없는id 입니다.");
 			return;
 		}
@@ -120,17 +126,41 @@ public class ListEx1 {
 
 	}
 
-//	public void Save() throws Exception {
-//		FileOutputStream fos = new FileOutputStream("C:\\Users\\user\\Desktop");
-//		ObjectOutputStream oos = new ObjectOutputStream(fos);
-//		
-//		Iterator<BoardBean> iter = ListDao.getDao().getList().iterator();
-//		while(iter.hasNext()) {
-//			oos.writeObject(iter.next());
-//		}
-//		
-//		
-//	}
+	public void Save() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("저장할 경로를 입력해 주세요 D:\\testForder\\test.txt");
+		String path = br.readLine();
+		try(ObjectOutputStream oos = new ObjectOutputStream(new PrintStream(new File(path)))){
+			oos.writeObject(ListDao.getDao().getList());
+			System.out.println("write Object Success");
+		
+		}catch(Exception e) {
+			System.out.println("잘못된 경로 입니다. ");
+			e.printStackTrace();
+		}
+		}
+	
+	public void Open() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("읽어올 경로를 입력해 주세요 D:\\testForder\\test.txt");
+		String path = br.readLine();
+		try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(path)))) {
+			//객체를 받아와서 String으로 바꾼다? 
+			ArrayList<String> arr = new ArrayList<String>();
+			
+			Object oj = ois.readObject();
+			
+			for(String obj : oj) {
+				
+			}
+			
+			String str = String.valueOf(ois.readObject());
+			System.out.println(str);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		}
+	
 	
 	public void menu() throws Exception {
 		while (true) {
@@ -160,9 +190,11 @@ public class ListEx1 {
 				delete();
 				break;
 			case 6:
-//				Save();
+				Save();
+				break;
 			case 7:
-
+				Open();
+				break;
 			}
 
 		}
