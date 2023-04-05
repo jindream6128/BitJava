@@ -149,7 +149,7 @@ public class ListEx1 {
 			ArrayList<String> arr = new ArrayList<String>();
 			
 			Object oj = ois.readObject();
-			
+			//이거 obj로 받기
 			for(String obj : oj) {
 				
 			}
