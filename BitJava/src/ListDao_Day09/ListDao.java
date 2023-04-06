@@ -6,8 +6,9 @@ import java.util.List;
 
 //Dao -> DataBase Access Object  데이터 베이스 접근 객체 
 
-public class ListDao implements Serializable{
-	private static ArrayList<BoardBean> list = new ArrayList<BoardBean>();
+public class ListDao{
+	public  static ArrayList<BoardBean> list = new ArrayList<BoardBean>();
+	//읽어온걸 여기에 저장을 어캐해..? 나이게 이해가 안되  그걸 이해몬함..
 	private static ListDao dao;
 
 	//싱글톤 패턴 -> 만약에 객체가 없으면 만들어주고 객체가 있으면 안만든다 .
@@ -16,6 +17,14 @@ public class ListDao implements Serializable{
 			dao = new ListDao();
 		}
 		return dao;
+	}
+
+	public static void save() {
+		// static list를 파일에 저장
+	}
+	
+	public static void load() {
+		// 파일에서 불러온 후 static list 접근
 	}
 
 	//id값을 입력받고, 해당값의 인덱스를 반환하고, 그값이 없으면 -1을 반환한다
@@ -60,7 +69,7 @@ public class ListDao implements Serializable{
 	// 만약 Arraylist에 있으면 false
 	public boolean noCheck(int no) {
 		if (list.isEmpty())
-			return true;
+			return true; // early return good
 
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getNo() == no) return false;

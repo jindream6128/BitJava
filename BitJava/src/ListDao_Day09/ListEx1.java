@@ -128,7 +128,7 @@ public class ListEx1 {
 
 	public void Save() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("저장할 경로를 입력해 주세요 D:\\testForder\\test.txt");
+		System.out.println("저장할 경로를 입력해 주세요 D:\\testForder\\test.txt 이거 집 D:\\test\\test.txt");
 		String path = br.readLine();
 		try(ObjectOutputStream oos = new ObjectOutputStream(new PrintStream(new File(path)))){
 			oos.writeObject(ListDao.getDao().getList());
@@ -146,15 +146,15 @@ public class ListEx1 {
 		String path = br.readLine();
 		try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(path)))) {
 		
-			/* 여기서부터 추가코드 */
-			
-			ArrayList list = (ArrayList) ois.readObject();
-		//	BoardBean list = (BoardBean) ois.readObject();
+			/* 여기서부터 뭐징코드 */
+			//ListDao.list가 public 이면 됨
+			ListDao.list = (ArrayList) ois.readObject(); 
 
-			
-			System.out.println(list.getClass().getName());
-			System.out.println(ois.readObject().getClass().getName()); // 문제가 생기네?
-			 /* 여기까지 */
+//			여기서 글머ㅕㄴ
+//			ListDao.l
+//			System.out.println(list.getClass().getName());
+//			System.out.println(ois.readObject().getClass().getName()); // 문제가 생기네?
+//			 /* 여기까지 */
 //			String str = String.valueOf(ois.readObject());
 //			System.out.println(str);
 		} catch (Exception e) {
