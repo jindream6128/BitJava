@@ -145,17 +145,18 @@ public class ListEx1 {
 		System.out.println("읽어올 경로를 입력해 주세요 D:\\testForder\\test.txt");
 		String path = br.readLine();
 		try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(path)))) {
-			//객체를 받아와서 String으로 바꾼다? 
-			ArrayList<String> arr = new ArrayList<String>();
+		
+			/* 여기서부터 추가코드 */
 			
-			Object oj = ois.readObject();
-			//이거 obj로 받기
-			for(String obj : oj) {
-				
-			}
+			ArrayList list = (ArrayList) ois.readObject();
+		//	BoardBean list = (BoardBean) ois.readObject();
+
 			
-			String str = String.valueOf(ois.readObject());
-			System.out.println(str);
+			System.out.println(list.getClass().getName());
+			System.out.println(ois.readObject().getClass().getName()); // 문제가 생기네?
+			 /* 여기까지 */
+//			String str = String.valueOf(ois.readObject());
+//			System.out.println(str);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
