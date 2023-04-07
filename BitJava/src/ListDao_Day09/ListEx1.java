@@ -171,6 +171,7 @@ public class ListEx1 {
 			// 8 -> 원래 지정된 경로로 자동으로 불러오기 ㅇ
 			// 9 -> 시스템 종료 ㅇ
 			System.out.println("0.AutoCall 1.Add 2.List(All print) 3.Info 4.Modify 5.Delete 6.Save 7.Open 8.AutoSave 9.SystemExit");
+			
 			switch (sc.nextInt()) {
 			case 0:
 				AutoOpen();
@@ -208,6 +209,7 @@ public class ListEx1 {
 
 	public static void main(String[] args) throws Exception {
 		ListEx1 ex = new ListEx1();
+		
 		ex.menu();
 	}
 }
